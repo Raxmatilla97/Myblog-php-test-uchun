@@ -6,6 +6,9 @@ $db_name = 'myblog';
 $db_user = 'root';
 $db_pass = '';
 $charset = 'utf8';
+
+// ATTR_ERRMODE : Xato haqida xabar rejimi.
+// ERRMODE_EXCEPTION esa xatoliklarni to'liq chiqarishga mo'ljallangan 8 versiyada u avtomatik ishlidi.
 $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
 
 try {
@@ -15,7 +18,7 @@ try {
     );
 
     echo '<img style="width: 150px;" src="https://social16.com/themes/social16/reaction/like.gif"> <br>';
-    echo "Ma'lumotlar omboriga ulanish mavjud! Xech qanday xatolik yo'q!";
+    echo "Ma'lumotlar omboriga ulanish mavjud! Xech qanday xatolik yo'q! <br><hr>";
 
 } catch (PDOException $i) {
 
