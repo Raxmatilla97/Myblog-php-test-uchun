@@ -9,7 +9,8 @@ $charset = 'utf8';
 
 // ATTR_ERRMODE : Xato haqida xabar rejimi.
 // ERRMODE_EXCEPTION esa xatoliklarni to'liq chiqarishga mo'ljallangan 8 versiyada u avtomatik ishlidi.
-$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION];
+// PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC Esa biz test qilganimizda dublikat klyuch chiqishini oldini olgan bo'lamiz.
+$options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC];
 
 try {
     $pdo = new PDO(
