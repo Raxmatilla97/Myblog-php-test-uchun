@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- <script src="https://use.fontawesome.com/da17da73b6.js"></script> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>MY blog!</title>
   </head>
   <body>
@@ -43,22 +43,32 @@
     <div class="container reg_form">
       <!-- Forma start -->
       <form class="row justify-content-center" method="post" action="/">
-        <h2>Saytga kirish uchun login formasi</h2>
+        <h2>Ro'yxatdan o'tish formasi</h2>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleLogin" class="form-label">Loginingiz</label>
           <input type="text" class="form-control" id="exampleLogin" aria-describedby="loginHelp">
           <div id="loginHelp" class="form-text">Saytga kirish uchun login yozing</div>
-        </div>       
+        </div>
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 col-md-4">
+          <label for="exampleInputEmail1" class="form-label">Email manzilingiz</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">Elektron pochta manzilingizni kiriting</div>
+        </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleInputPassword1" class="form-label">Parolingiz</label>
           <input type="password" class="form-control" id="exampleInputPassword1">
         </div>
-        
+        <div class="w-100"></div>
+        <div class="mb-3 col-12 col-md-4">
+          <label for="exampleInputPassword2" class="form-label">Parolingizni tasdiqlang</label>
+          <input type="password" class="form-control" id="exampleInputPassword2">
+        </div>
         <div class="w-100"></div>
         <div class="mb-5 col-6 col-md-4">
-        <button type="submit" class="btn btn-success">Saytga kirish</button>
-        <a  href="reg.html">Ro'yxatdan o'tish</a>
+        <button type="submit" class="btn btn-primary">Yuborish</button>
+        <a href="auth.html">Saytga kirish</a>
         </div>
       </form>
       <!-- Forma end -->
