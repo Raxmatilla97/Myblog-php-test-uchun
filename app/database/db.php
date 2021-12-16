@@ -123,6 +123,47 @@ $params = [
 
 // Test funksiyasiga istalgan tablitsiyadagi barcha ma'lumotlarni chiqarish uchun.
 //test(selectAll('users', $params));
-test(selectOne('users'));
+//test(selectOne('users'));
 
 //"<h2 style='text-align: center'>Boshqa so'rovlar</h2><br>" .
+
+
+// Ma'lumotlar ombori jadvaliga ma'lumot joylash
+
+function insert($table, $params){
+    global $pdo;
+    /* INSERT INTO `users` (`admin`, `username`, `email`, `password`, `created`)
+       VALUES (NULL, '0', 'Raxmatilla', 'wi.fi.xor2@gmail.com', '5579187Er', CURRENT_TIMESTAMP);
+    */
+    $i = 0;
+    $coll = '';
+    $mask = '';
+    foreach ($params as $key => $value) {
+
+        if ($i === 0){
+            $coll = $coll . "`" ."$key" . "`";
+            $mask = $mask . "'" . "$value" . "'";
+        }else{
+            $coll = $coll . ", `" ."$key" . "`";
+            $mask = $mask . ", '" . "$value" . "'";
+        }
+        $i++;
+    }
+    $sql = "INSERT INTO `$table` ($coll) VALUES ($mask)";
+
+   /* test($sql);
+    exit();*/
+    $query = $pdo->prepare($sql);
+    $query->execute($params);
+    dbCheckError($query);
+}
+
+$arrData = [
+    'admin' => '1',
+    'username' => '22222222',
+    'email' => 'wi-fo22223333o@gmail.com',
+    'password' => '5579187Er',
+    'created' => '2021-12-16 06:57:17'
+];
+
+insert('users', $arrData);
