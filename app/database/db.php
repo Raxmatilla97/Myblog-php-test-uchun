@@ -166,5 +166,41 @@ $arrData = [
     'created' => '2021-12-16 06:57:17'
 ];
 
-insert('users', $arrData);
+//insert('users', $arrData);
 
+
+// Ma'lumotlar omboriga kiritilgan ma'lumotni yangilash
+
+function update($table, $id, $params){
+    global $pdo;
+    // UPDATE `users` SET `admin` = 100, `username` = "Raxmatilla" WHERE `id` = 40
+
+    $i = 0;
+    $str = '';
+    foreach ($params as $key => $value) {
+
+        if ($i === 0){
+            $str = $str . "`" . $key . "` = '" . $value . "'";
+        }else{
+            $str = $str .", `". $key . "` = '" . $value . "'";
+        }
+        $i++;
+    }
+
+    $sql = "UPDATE `$table` SET $str WHERE `id` = $id";
+
+     /*test($sql);
+     exit();*/
+
+    $query = $pdo->prepare($sql);
+    $query->execute($params);
+    dbCheckError($query);
+}
+
+$param = [
+    'admin' => '1',
+    'username' => '1111111111',
+    'email' => 'wi-for@mail.ru'
+];
+
+update('users', 40, $param);
