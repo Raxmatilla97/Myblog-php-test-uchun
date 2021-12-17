@@ -204,3 +204,22 @@ $param = [
 ];
 
 update('users', 40, $param);
+
+
+// Ma'lumotlar omboriga kiritilgan ma'lumotni o'chirib tashlash
+
+function delete($table, $id){
+    global $pdo;
+    // DELETE FROM `users` WHERE `id` = 40
+
+    $sql = "DELETE FROM `$table` WHERE `id` = $id";
+
+    /*test($sql);
+    exit();*/
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+}
+
+delete('users', 41);
