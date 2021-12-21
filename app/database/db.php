@@ -64,11 +64,20 @@ function selectAll($table, $params = []){
      * funksiyasi ishlatililadi agar ko'p malumot so'ralsa bu funksiya ishlatilmaydi.
      *
      * Bazadan ko'p ma'lumotlarni to'plash uchun fetchAll() ishlatililadi.
-     * */
+     */
     return $query->fetchAll();
 
 
 }
+
+$params = [
+    'admin' => 0,
+    'email' => 'wi.fi.xor@gmail.com'
+];
+
+// Test funksiyasiga istalgan tablitsiyadagi barcha ma'lumotlarni chiqarish uchun.
+//test(selectAll('users', $params));
+
 
 
 // Bu funksiya ma'lumotlar bazasidagi bir tablitsiyadan birgina ma'lumot qabul qilib oladi.
@@ -117,13 +126,12 @@ function selectOne($table, $params = []){
 }
 
 $params = [
-    'admin' => 0,
+    'admin' => 1,
     'email' => 'wi.fi.xor@gmail.com'
 ];
 
 // Test funksiyasiga istalgan tablitsiyadagi barcha ma'lumotlarni chiqarish uchun.
-//test(selectAll('users', $params));
-//test(selectOne('users'));
+//test(selectOne('users', $params));
 
 //"<h2 style='text-align: center'>Boshqa so'rovlar</h2><br>" .
 
@@ -156,6 +164,8 @@ function insert($table, $params){
     $query = $pdo->prepare($sql);
     $query->execute($params);
     dbCheckError($query);
+
+    return $pdo->lastInsertId();
 }
 
 $arrData = [
@@ -203,7 +213,7 @@ $param = [
     'email' => 'wi-for@mail.ru'
 ];
 
-update('users', 40, $param);
+//update('users', 40, $param);
 
 
 // Ma'lumotlar omboriga kiritilgan ma'lumotni o'chirib tashlash
@@ -222,4 +232,4 @@ function delete($table, $id){
     dbCheckError($query);
 }
 
-delete('users', 41);
+//delete('users', 41);
