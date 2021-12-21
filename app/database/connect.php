@@ -4,7 +4,7 @@ $driver = 'mysql';
 $host = 'localhost';
 $db_name = 'myblog';
 $db_user = 'root';
-$db_pass = '';
+$db_pass = 'root';
 $charset = 'utf8';
 
 // ATTR_ERRMODE : Xato haqida xabar rejimi.
@@ -18,8 +18,8 @@ try {
         $db_user, $db_pass, $options
     );
 
-    echo '<img style="width: 150px;" src="https://social16.com/themes/social16/reaction/like.gif"> <br>';
-    echo "Ma'lumotlar omboriga ulanish mavjud! Xech qanday xatolik yo'q! <br><hr>";
+    // echo '<img style="width: 150px;" src="https://social16.com/themes/social16/reaction/like.gif"> <br>';
+    // echo "Ma'lumotlar omboriga ulanish mavjud! Xech qanday xatolik yo'q! <br><hr>";
 
 } catch (PDOException $i) {
 
