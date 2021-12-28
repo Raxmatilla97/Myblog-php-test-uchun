@@ -26,23 +26,27 @@ include_once "app/controller/users.php";
 
     <div class="container reg_form">
       <!-- Forma start -->
-      <form class="row justify-content-center" method="post" action="/reg.php">
+      <form class="row justify-content-center" method="POST" action="/reg.php">
         <h2>Ro'yxatdan o'tish formasi</h2>
+          <?php if ($errMsg){?>
+          <p style="text-align: center; width: 50%" class="alert alert-danger"><?=$errMsg?></p>
+          <hr>
+          <?php }?>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleLogin" class="form-label">Ismingiz</label>
-          <input type="text" class="form-control" name="username" id="exampleLogin" aria-describedby="loginHelp">
+          <input type="text" class="form-control" value="<?=$user?>" name="username" id="exampleLogin" aria-describedby="loginHelp">
           <div id="loginHelp" class="form-text">Saytga kirish uchun login yozing</div>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleInputEmail1" class="form-label">Email manzilingiz</label>
-          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+          <input type="email" class="form-control" value="<?=$email?>" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
           <div id="emailHelp" class="form-text">Elektron pochta manzilingizni kiriting</div>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleInputPassword1" class="form-label">Parolingiz</label>
-          <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+          <input type="password" class="form-control" name="password-first" id="exampleInputPassword1">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
