@@ -1,5 +1,6 @@
 <?php
 include_once "app/database/db.php";
+require_once "path.php";
 
 $isSubmit = false;
 $errMsg = '';
@@ -36,7 +37,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
             //    $id = insert('users', $post);
             $isSubmit = true;
             $id = insert('users', $post);
-            $errMsg = "Foydalanuvchi <strong> $user </strong> ro'yxatdan o'tqazildi!";
+            $user = selectOne('users', ['id' => $id]);
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['user'] = $user['username'];
+            $_SESSION['admin'] = $user['admin'];
+
+            if ($_SESSION['admin']){
+                header('location: ' . BASE_URL . admin/admin.php);
+            }else{
+                header('location: ' . PATH_URL );
+            }
+//            test($_SESSION);
+//            exit();
         }
 
     }
