@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 // Ma'lumotlar omborini import qilib olamiz
 require_once "connect.php";
 
