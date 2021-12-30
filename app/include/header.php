@@ -12,13 +12,26 @@
                         <li><a href="<?php echo PATH_URL?>"><i class="fas fa-house-user"></i> Asosiy sahifa</a></li>
                         <li><a href="#"><i class="fas fa-user-tie"></i> Biz haqimizda</a></li>
                         <li><a href="#"><i class="fas fa-user-graduate"></i> Hizmatlar</a></li>
+
                         <li>
-                            <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
-                            <ul>
-                                <li><a href="#">Admin panel</a></li>
-                                <li><a href="#">Chiqish</a></li>
-                            </ul>
+                            <?php if (isset($_SESSION['id'])): ?>
+                                <a href="#"><i class="fas fa-user-circle"></i> <?php echo $_SESSION['user'];?></a>
+                                <ul>
+                                    <?php if ($_SESSION['id'] === 1): ?>
+                                    <li><a href="#">Admin panel</a></li>
+                                    <?php endif; ?>
+                                    <li><a href="#">Chiqish</a></li>
+                                </ul>
+
+                            <?php else: ?>
+                                <a href="<?php echo PATH_URL . "log.php"; ?>"><i class="fas fa-key"></i> Kirish</a>
+                                <ul>
+                                    <li><a href="<?php echo PATH_URL . "reg.php"; ?>">Ro'yxatdan o'tish</a></li>
+                                </ul>
+                            <?php endif; ?>
+
                         </li>
+
                     </ul>
                 </nav>
             </div>
