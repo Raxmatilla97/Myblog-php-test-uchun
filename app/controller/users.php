@@ -2,12 +2,15 @@
 include_once "app/database/db.php";
 require_once "path.php";
 
-$isSubmit = false;
+//$isSubmit = false;
 $errMsg = '';
 
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST'){
+// Ro'yxatdan o'tish uchun kod
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
+//    test($_POST);
+//    echo "TEst register";
+//    exit();
     $admin = 0;
     $user = trim($_POST['username']);
     $email = trim($_POST['email']);
@@ -60,5 +63,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     $email = '';
 }
 
+// Avtorizatsiya qilish uchun kod
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
+    $email = trim($_POST['email']);
+    $pass = trim($_POST['password-second']);
+
+    if ($email === '' || $pass === ''){
+        $errMsg = "Formada maydonchalar to'ldirilmagan!";
+    }else{
+        $existence = selectOne('users', ['email' => $email]);
+        if ($existence && password_verify($pass, $existence['password'])){
+            $_SESSION['id'] = $existence['id'];
+            $_SESSION['user'] = $existence['username'];
+            $_SESSION['admin'] = $existence['admin'];
+
+            if ($_SESSION['admin']){
+                header('location: ' . BASE_URL . admin/admin.php);
+            }else{
+                header('location: ' . PATH_URL );
+            }
+        }else{
+            $errMsg = "Elektron pochta yoki parol no to'g'ri";
+        }
+    }
+
+
+
+}else{
+
+    $email = '';
+}
 
 
