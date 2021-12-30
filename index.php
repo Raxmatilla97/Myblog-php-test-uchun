@@ -1,3 +1,7 @@
+<?php
+    require_once "app/database/db.php";
+
+?>
 
 <!doctype html>
 <html lang="en">
