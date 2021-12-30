@@ -1,3 +1,10 @@
+<?php
+include_once "path.php";
+include_once "app/controller/users.php";
+//exit();
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -18,22 +25,26 @@
 
     <div class="container reg_form">
       <!-- Forma start -->
-      <form class="row justify-content-center" method="post" action="/">
+      <form class="row justify-content-center" method="POST" action="/log.php">
         <h2>Saytga kirish uchun login formasi</h2>
-        <div class="mb-3 col-12 col-md-4">
-          <label for="exampleLogin" class="form-label">Loginingiz</label>
-          <input type="text" class="form-control" id="exampleLogin" aria-describedby="loginHelp">
-          <div id="loginHelp" class="form-text">Saytga kirish uchun login yozing</div>
-        </div>       
+          <?php if ($errMsg){?>
+              <p style="text-align: center; width: 50%" class="alert alert-danger"><?=$errMsg?></p>
+              <hr>
+          <?php }?>
+          <div class="mb-3 col-12 col-md-4">
+              <label for="exampleInputEmail1" class="form-label">Email pochtangizni kiriting</label>
+              <input type="email" class="form-control" value="<?=$email?>" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">Elektron pochta manzilingizni kiriting</div>
+          </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
           <label for="exampleInputPassword1" class="form-label">Parolingiz</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" name="password-second" class="form-control" id="exampleInputPassword1">
         </div>
         
         <div class="w-100"></div>
         <div class="mb-5 col-6 col-md-4">
-        <button type="submit" class="btn btn-success">Saytga kirish</button>
+        <button type="submit" name="button-log" class="btn btn-success">Saytga kirish</button>
         <a  href="reg.php">Ro'yxatdan o'tish</a>
         </div>
       </form>
