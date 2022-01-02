@@ -20,7 +20,7 @@
                                     <?php if ($_SESSION['id'] === 1): ?>
                                     <li><a href="#">Admin panel</a></li>
                                     <?php endif; ?>
-                                    <li><a href="#">Chiqish</a></li>
+                                    <li><a href="<?php echo PATH_URL . "logout.php"; ?>">Chiqish</a></li>
                                 </ul>
 
                             <?php else: ?>
