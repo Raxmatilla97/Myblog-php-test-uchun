@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
                 'email' => $email,
                 'password' => $pass
             ];
-            //    $id = insert('users', $post);
+            //    $id = insert('users', $posts);
             $isSubmit = true;
             $id = insert('users', $post);
             $user = selectOne('users', ['id' => $id]);
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-reg'])){
             $_SESSION['admin'] = $user['admin'];
 
             if ($_SESSION['admin']){
-                header('location: ' . BASE_URL . admin/admin.php);
+                header('location: ' . PATH_URL . "admin/posts/index.php");
             }else{
                 header('location: ' . PATH_URL );
             }
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['button-log'])){
             $_SESSION['admin'] = $existence['admin'];
 
             if ($_SESSION['admin']){
-                header('location: ' . BASE_URL . admin/admin.php);
+                header('location: ' . PATH_URL . "admin/posts/index.php");
             }else{
                 header('location: ' . PATH_URL );
             }
