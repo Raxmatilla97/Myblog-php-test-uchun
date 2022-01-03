@@ -164,3 +164,91 @@ header ul li ul li a {
     left: 0px;
     padding-top: 20px;
 }
+
+/* SAIDBAR */
+
+.sidebar{
+    background: #006669;
+    margin: 1rem 0;
+    min-height: 600px;
+}
+
+.sidebar ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    color: #ffffff;
+}
+
+.sidebar ul a{
+    padding: 18px;
+    display: block;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.sidebar ul a:hover{
+    padding-left: 10px;
+    transition: all 0.3s;
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+.posts{
+    height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+.posts h2{
+    text-align: center;
+    margin: 1.5rem;
+}
+
+.posts .title-table div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+    font-weight: 900;
+}
+
+.posts .post div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
+
+.edit a {
+    color: rgb(255 193 7);
+}
+
+.delet  a{
+    color: rgb(255, 0, 0);
+}
+
+/* CREATE */
+
+.add-post{
+    height: 100%;
+    padding: 40px 100px 100px;
+    overflow-y: scroll;
+}
+
+.add-post h2{
+    text-align: center;
+    margin: 1.5rem;
+}
+
+.add-post .title-table div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+    font-weight: 900;
+}
+
+.add-post .post div{
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #d3d3d3;
+}
