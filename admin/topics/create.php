@@ -40,39 +40,28 @@ session_start();
            
             <div class="add-post col-9">
                 <div class="button row">
-                    <a href="create.html" class="col-2 btn btn-success">Post qo'shish</a>
+                    <a href="create.html" class="col-2 btn btn-success">Bo'lim qo'shish</a>
                     <span class="col-1"></span>
-                    <a href="index.html" class="col-3 btn btn-warning">Postlarni boshqarish</a>
+                    <a href="index.html" class="col-3 btn btn-warning">Bo'limlarni boshqarish</a>
                 </div>
                 <div class="row title-table">
-                    <h2>Blog yaratish sahifasi</h2>
+                    <h2>Bo'limlarni yaratish sahifasi</h2>
                                      
                 </div>
                 <div class="row post">
                     <form action="create.php" method="post">
                     <div class="col">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
-                        <input type="text" id="title" class="form-control" placeholder="Blog nomi" aria-label="Blogni nomi">
+                        <input type="text" id="title" class="form-control" placeholder="bo'lim nomi" aria-label="Bo'lim nomi">
                     </div>
                     <div class="col">
-                        <label for="content" class="form-label">Blogning asosiy qismi</label>
+                        <label for="content" class="form-label">Bo'limning asosiy qismi</label>
                         <textarea class="form-control" id="contnet" rows="3"></textarea>
-                    </div>
-                    <div class="input-group col">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
-                    </div>
-                    <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    </div>
+                    </div>           
+                  
                    
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" type="submit">Bo'limni yaratish</button>
                     </div>
 
                     </form>

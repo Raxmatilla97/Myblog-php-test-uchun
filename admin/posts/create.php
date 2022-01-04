@@ -56,7 +56,7 @@ session_start();
                     </div>
                     <div class="col">
                         <label for="content" class="form-label">Blogning asosiy qismi</label>
-                        <textarea class="form-control" id="contnet" rows="3"></textarea>
+                        <textarea class="form-control" id="contnet" rows="6"></textarea>
                     </div>
                     <div class="input-group col">
                         <input type="file" class="form-control" id="inputGroupFile02">
