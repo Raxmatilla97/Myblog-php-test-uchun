@@ -247,8 +247,8 @@ header ul li ul li a {
     font-weight: 900;
 }
 
-.add-post .post div{
-    padding: 15px;
+.add-post .post .div{
+    padding: 30px;
     text-align: left;
     border-bottom: 1px solid #d3d3d3;
 }

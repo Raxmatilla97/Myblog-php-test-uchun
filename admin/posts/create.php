@@ -15,6 +15,7 @@ session_start();
     <!-- <script src="https://use.fontawesome.com/da17da73b6.js"></script> -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
     <link rel="stylesheet" href="../../assets/css/admin.css">
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
     <title>MY blog!</title>
 </head>
 <body>
@@ -50,19 +51,19 @@ session_start();
                 </div>
                 <div class="row post">
                     <form action="create.php" method="post">
-                    <div class="col">
+                    <div class="col div">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
                         <input type="text" id="title" class="form-control" placeholder="Blog nomi" aria-label="Blogni nomi">
                     </div>
-                    <div class="col">
+                    <div class="col ">
                         <label for="content" class="form-label">Blogning asosiy qismi</label>
-                        <textarea class="form-control" id="contnet" rows="6"></textarea>
+                        <textarea class="form-control" id="editor" rows="10" ></textarea>
                     </div>
-                    <div class="input-group col">
+                    <div class="input-group col div">
                         <input type="file" class="form-control" id="inputGroupFile02">
                         <label class="input-group-text" for="inputGroupFile02">Upload</label>
                     </div>
-                    <div class="col">
+                    <div class="col div">
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -71,7 +72,7 @@ session_start();
                     </select>
                     </div>
                    
-                    <div class="col">
+                    <div class="col div">
                         <button class="btn btn-primary" type="submit">Submit form</button>
                     </div>
 
@@ -99,5 +100,16 @@ session_start();
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 -->
+
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+                </script>
 </body>
 </html>
