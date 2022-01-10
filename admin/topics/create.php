@@ -36,7 +36,7 @@ session_start();
                                      
                 </div>
                 <div class="row post">
-                    <form action="create.php" method="post">
+                    <form action="../../app/controller/topics.php" method="post">
                     <div class="col">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
                         <input type="text" id="title" name="name" class="form-control" placeholder="bo'lim nomi" aria-label="Bo'lim nomi">
