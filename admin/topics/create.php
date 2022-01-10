@@ -39,16 +39,16 @@ session_start();
                     <form action="create.php" method="post">
                     <div class="col">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
-                        <input type="text" id="title" class="form-control" placeholder="bo'lim nomi" aria-label="Bo'lim nomi">
+                        <input type="text" id="title" name="name" class="form-control" placeholder="bo'lim nomi" aria-label="Bo'lim nomi">
                     </div>
                     <div class="col">
                         <label for="content" class="form-label">Bo'limning asosiy qismi</label>
-                        <textarea class="form-control" id="contnet" rows="3"></textarea>
+                        <textarea class="form-control" name="content" id="contnet" rows="3"></textarea>
                     </div>           
                   
                    
                     <div class="col">
-                        <button class="btn btn-primary" type="submit">Bo'limni yaratish</button>
+                        <button class="btn btn-primary" name="topics-create" type="submit">Bo'limni yaratish</button>
                     </div>
 
                     </form>
