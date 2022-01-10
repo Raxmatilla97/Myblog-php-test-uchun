@@ -2,11 +2,12 @@
 include_once "../../app/database/db.php";
 
 
+
 //$isSubmit = false;
 $errMsg = '';
 
 
-// Ro'yxatdan o'tish uchun kod
+// Bloglarni bo'limlarini yaratish formasi
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topics-create'])){
 //    test($_POST);
 //    echo "TEst register";
@@ -36,7 +37,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topics-create'])){
          
             $id = insert('topics', $topic);
             $topic = selectOne('topics', ['id' => $id]);
-      
+
+            header("Location: " . $_SERVER["HTTP_REFERER"]);
         }
 
     }

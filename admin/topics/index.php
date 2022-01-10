@@ -27,9 +27,9 @@ session_start();
            
             <div class="posts col-9">
             <div class="button row">
-                    <a href="<?=PATH_URL . "admin/topics/create.php";?>" class="col-2 btn btn-success">Bo'lim qo'shish</a>
+                    <a href="<?=PATH_URL . "admin/topics/create.php";?>" class="col-auto btn btn-success">Bo'lim qo'shish</a>
                     <span class="col-1"></span>
-                    <a href="<?=PATH_URL . "admin/topics/index.php";?>" class="col-3 btn btn-warning">Bo'limlarni tahrirlash</a>
+                    <a href="<?=PATH_URL . "admin/topics/index.php";?>" class="col-auto btn btn-warning">Bo'limlarni tahrirlash</a>
                 </div>
                 <div class="row title-table">
                     <h2>Bo'limlarni boshqarish</h2>

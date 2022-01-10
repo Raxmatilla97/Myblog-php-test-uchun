@@ -1,6 +1,9 @@
 <?php
 //require_once "../../app/database/db.php";
 session_start();
+
+require_once "../../path.php";
+include_once "../../app/controller/topics.php";
 ?>
 
 <!doctype html>
@@ -27,28 +30,33 @@ session_start();
            
             <div class="add-post col-9">
                 <div class="button row">
-                    <a href="<?=PATH_URL . "admin/topics/create.php";?>" class="col-2 btn btn-success">Bo'lim qo'shish</a>
+                    <a href="<?=PATH_URL . "admin/topics/create.php";?>" class="col-auto btn btn-success">Bo'lim qo'shish</a>
                     <span class="col-1"></span>
-                    <a href="<?=PATH_URL . "admin/topics/index.php";?>" class="col-3 btn btn-warning">Bo'limlarni tahrirlash</a>
+                    <a href="<?=PATH_URL . "admin/topics/index.php";?>" class="col-auto btn btn-warning">Bo'limlarni tahrirlash</a>
                 </div>
                 <div class="row title-table">
                     <h2>Bo'limlarni yaratish sahifasi</h2>
                                      
                 </div>
+                <?php if ($errMsg){?>
+                        <p style="text-align: center; width: 100%" class="alert alert-danger"><?=$errMsg?></p>
+                        <hr>
+                        <?php }?>
                 <div class="row post">
-                    <form action="../../app/controller/topics.php" method="post">
+                    <form action="create.php" method="post">
+                        
                     <div class="col">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
-                        <input type="text" id="title" name="name" class="form-control" placeholder="bo'lim nomi" aria-label="Bo'lim nomi">
+                        <input type="text" id="title" value="<?=$name?>" name="name" class="form-control" placeholder="bo'lim nomi" aria-label="Bo'lim nomi">
                     </div>
-                    <div class="col">
+                    <div class="col mt-3">
                         <label for="content" class="form-label">Bo'limning asosiy qismi</label>
-                        <textarea class="form-control" name="content" id="contnet" rows="3"></textarea>
+                        <textarea class="form-control" value="<?=$content?>" name="content" id="contnet" rows="3"></textarea>
                     </div>           
                   
                    
-                    <div class="col">
-                        <button class="btn btn-primary" name="topics-create" type="submit">Bo'limni yaratish</button>
+                    <div class="col text-center">
+                        <button class="btn btn-primary mt-5 " name="topics-create" type="submit">Bo'limni yaratish</button>
                     </div>
 
                     </form>

@@ -28,9 +28,9 @@ session_start();
            
             <div class="add-post col-9">
                 <div class="button row">
-                    <a href="<?=PATH_URL . "admin/posts/create.php";?>" class="col-2 btn btn-success">Blog qo'shish</a>
+                    <a href="<?=PATH_URL . "admin/posts/create.php";?>" class="col-auto btn btn-success">Blog qo'shish</a>
                     <span class="col-1"></span>
-                    <a href="<?=PATH_URL . "admin/posts/index.php";?>" class="col-3 btn btn-warning">Bloglarni tahrirlash</a>
+                    <a href="<?=PATH_URL . "admin/posts/index.php";?>" class="col-auto btn btn-warning">Bloglarni tahrirlash</a>
                 </div>
                 <div class="row title-table">
                     <h2>Blog yaratish sahifasi</h2>
