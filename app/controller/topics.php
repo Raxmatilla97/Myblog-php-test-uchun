@@ -1,6 +1,6 @@
 <?php
-include_once "app/database/db.php";
-require_once "path.php";
+include_once "../../app/database/db.php";
+
 
 //$isSubmit = false;
 $errMsg = '';
