@@ -23,26 +23,13 @@ session_start();
     <!-- HEADER END -->
 
     <div class="container">
-        <div class="row">
-            <div class="sidebar col-3">
-                <ul>
-                    <li>
-                        <a href="#">Yozuvlar</a>
-                    </li>
-                    <li>
-                        <a href="">Foydalanuvchilar</a>
-                    </li>
-                    <li>
-                        <a href="">Bo'limlar</a>
-                    </li>
-                </ul>
-            </div>
+    <?php include_once "../../app/include/sidebar-admin.php";?>
            
             <div class="posts col-9">
-                <div class="button row">
-                    <a href="create.html" class="col-2 btn btn-success">Bo'lim qo'shish</a>
+            <div class="button row">
+                    <a href="<?=PATH_URL . "admin/topics/create.php";?>" class="col-2 btn btn-success">Bo'lim qo'shish</a>
                     <span class="col-1"></span>
-                    <a href="index.html" class="col-3 btn btn-warning">Bo'limlarni boshqarish</a>
+                    <a href="<?=PATH_URL . "admin/topics/index.php";?>" class="col-3 btn btn-warning">Bo'limlarni tahrirlash</a>
                 </div>
                 <div class="row title-table">
                     <h2>Bo'limlarni boshqarish</h2>

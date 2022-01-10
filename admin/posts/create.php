@@ -24,26 +24,13 @@ session_start();
     <!-- HEADER END -->
 
     <div class="container">
-        <div class="row">
-            <div class="sidebar col-3">
-                <ul>
-                    <li>
-                        <a href="#">Yozuvlar</a>
-                    </li>
-                    <li>
-                        <a href="">Foydalanuvchilar</a>
-                    </li>
-                    <li>
-                        <a href="">Bo'limlar</a>
-                    </li>
-                </ul>
-            </div>
+    <?php include_once "../../app/include/sidebar-admin.php";?>
            
             <div class="add-post col-9">
                 <div class="button row">
-                    <a href="create.html" class="col-2 btn btn-success">Post qo'shish</a>
+                    <a href="<?=PATH_URL . "admin/posts/create.php";?>" class="col-2 btn btn-success">Blog qo'shish</a>
                     <span class="col-1"></span>
-                    <a href="index.html" class="col-3 btn btn-warning">Postlarni boshqarish</a>
+                    <a href="<?=PATH_URL . "admin/posts/index.php";?>" class="col-3 btn btn-warning">Bloglarni tahrirlash</a>
                 </div>
                 <div class="row title-table">
                     <h2>Blog yaratish sahifasi</h2>
