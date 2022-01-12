@@ -1,5 +1,6 @@
-<?php
-    require_once "app/database/db.php";
+<?php 
+  include "app/controller/topics.php";
+  
 
 ?>
 
@@ -197,12 +198,9 @@
             <h3>Bo'limlar</h3>
 
             <ul>
-              <li><a href="#">PHP laravel</a></li>
-              <li><a href="#">Javascript VUE</a></li>
-              <li><a href="#">Python Django</a></li>
-              <li><a href="#">Nginx aapanel</a></li>
-              <li><a href="#">SQL Myasl</a></li>
-              <li><a href="#">IT texnalogiyalari</a></li>
+              <?php foreach($topics as $key => $topic ): ?>
+              <li><a href="#"><?=$topic['name']?></a></li>          
+              <?php endforeach ?>   
             </ul>
           </div>
 
