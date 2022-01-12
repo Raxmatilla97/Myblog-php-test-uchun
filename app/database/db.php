@@ -9,6 +9,7 @@ function test($value){
     echo "<pre>";
     print_r($value);
     echo "</pre>";
+    exit();
 }
 
 function dbCheckError($query){
