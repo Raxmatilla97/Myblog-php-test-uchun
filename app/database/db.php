@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!$_SESSION) {
+    header('location: ' . PATH_URL . 'log.php');
+}
+
+
 // Ma'lumotlar omborini import qilib olamiz
 require_once "connect.php";
 
