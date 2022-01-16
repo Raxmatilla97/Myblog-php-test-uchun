@@ -2,11 +2,12 @@
 include_once __DIR__."/../../app/database/db.php";
 require_once __DIR__."/../../path.php";
 
+
 $id = '';
 $title = '';
 $content = '';
 $topic = '';
-$errMsg = '';
+$errMsg = [];
 $img = '';
 $id_user = $_SESSION['id'];
 
@@ -18,8 +19,30 @@ $postsAdm = selsectAllFromPostsWithUsers('posts', 'users');
 //test($postsAdm);
 // Bloglarni yaratish formasi
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post']) ){
+  
+    // Surat yuklanganda bajariladigan funksiya 
+    if (!empty($_FILES['img']['name'])) {
+        $imgName = time() . "_" .$_FILES['img']['name'];
+        $fileTmpName = $_FILES['img']['tmp_name'];
+        $destination = ROOT_PATH . "\assets\images\posts\\". $imgName;
 
-   
+        $fileType =  $_FILES['img']['type'];
+
+        if (strpos($fileType, 'image' ) === false) {
+            array_push($errMsg, "Siz bu yerga faqat surat yuklang");
+        } else{      
+        $result = move_uploaded_file($fileTmpName, $destination);
+
+        if ($result) {
+            $_POST['img'] = $imgName;
+        }else{
+            array_push($errMsg, "Siz yuklagan surat serverga yuklanishida hatolik yuzaga keldi.");
+        }
+    }
+    }else{
+        array_push($errMsg, "Blogni surati bo'lishi lozim, iltimos surat yuklang!");
+    }
+    
     $title = trim($_POST['title']);
     $content = trim($_POST['content']);
     $topic = $_POST['id_topic'];
@@ -27,9 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post']) ){
     $status = isset($_POST['status']) ? 1 : 0;
 
     if ($title === '' || $content === '' || $topic === ''){
-    $errMsg = "Formada maydonchalar to'ldirilmagan!";
+    array_push($errMsg, "Formada maydonchalar to'ldirilmagan!");
+    
     }elseif (mb_strlen($title, 'UTF8') < 7){
-        $errMsg = "Nomlanish 7-x simvoldan kotta bo'lishi kere!";
+        array_push($errMsg, "Nomlanish 7-x simvoldan kotta bo'lishi kere!");
     }else
         {
             
