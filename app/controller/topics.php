@@ -5,7 +5,7 @@ require_once __DIR__."/../../path.php";
 $id = '';
 $name = '';
 $content = '';
-$errMsg = '';
+$errMsg = [];
 $topics = selectAll('topics');
 
 // Bloglarni bo'limlarini yaratish formasi
@@ -21,13 +21,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topics-create'])){
 
 
     if ($name === '' || $content === ''){
-    $errMsg = "Formada maydonchalar to'ldirilmagan!";
+        array_push($errMsg, "Formada maydonchalar to'ldirilmagan!");
+
     }elseif (mb_strlen($name, 'UTF8') < 2){
-        $errMsg = "Nomlanish 2-x simvoldan kotta bo'lishi kere!";
+        array_push($errMsg, "Nomlanish 2-x simvoldan kotta bo'lishi kere!");
+
     }else {
         $existence = selectOne('topics', ['name' => $name]);
         if ($existence['name'] === $name){
-            $errMsg = $name . " = nomli bo'lim ro'yxatdan o'tgan! Iltimos boshqa nom yozing!";
+            array_push($errMsg, "$name = nomli bo'lim ro'yxatdan o'tgan! Iltimos boshqa nom yozing!");
         }else{
             
             $topic = [
