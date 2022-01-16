@@ -1,6 +1,6 @@
 <?php
-//require_once "../../app/database/db.php";
-session_start();
+
+include_once "../../app/controller/posts.php";
 ?>
 
 <!doctype html>
@@ -36,31 +36,40 @@ session_start();
                     <h2>Blog yaratish sahifasi</h2>
                                      
                 </div>
+                <?php if ($errMsg){?>
+                        <p style="text-align: center; width: 100%" class="alert alert-danger"><?=$errMsg?></p>
+                        <hr>
+                        <?php }?>
                 <div class="row post">
                     <form action="create.php" method="post">
                     <div class="col div">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
-                        <input type="text" id="title" class="form-control" placeholder="Blog nomi" aria-label="Blogni nomi">
+                        <input type="text" value="<?=$title?>" name="title" id="title" class="form-control" placeholder="Blog nomi" aria-label="Blogni nomi">
                     </div>
                     <div class="col ">
                         <label for="content" class="form-label">Blogning asosiy qismi</label>
-                        <textarea class="form-control" id="editor" rows="10" ></textarea>
+                        <textarea class="form-control" name="content" id="editor" rows="10" ><?=$content?></textarea>
                     </div>
                     <div class="input-group col div">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        <input type="file" name="img" value="<?=$img?>" class="form-control" id="inputGroupFile02">
+                        <label class="input-group-text"  for="inputGroupFile02">Upload</label>
                     </div>
                     <div class="col div">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                    <select class="form-select" name="id_topic" aria-label="Default select example">
+                        <option selected>Bo'limni tanlang</option>
+                        <?php foreach($topics as $key => $topic): ?>
+                        <option value="<?=$topic['id']?>"><?=$topic['name']?></option>
+                        <?php endforeach ?>
                     </select>
                     </div>
-                   
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="status" value="1" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                           Nashir qilish
+                        </label>
+                    </div>
                     <div class="col div">
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button name="add_post" class="btn btn-primary" type="submit">Blog qo'shish</button>
                     </div>
 
                     </form>
