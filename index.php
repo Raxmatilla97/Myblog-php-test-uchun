@@ -1,6 +1,6 @@
 <?php 
   include "app/controller/topics.php";
-  
+  session_start()
 
 ?>
 
