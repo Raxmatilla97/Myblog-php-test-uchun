@@ -38,10 +38,7 @@ include_once "../../app/controller/topics.php";
                     <h2>Bo'limlarni yaratish sahifasi</h2>
                                      
                 </div>
-                <?php if ($errMsg){?>
-                        <p style="text-align: center; width: 100%" class="alert alert-danger"><?=$errMsg?></p>
-                        <hr>
-                        <?php }?>
+                <?php include("../../app/helps/errorinfo.php");?>
                 <div class="row post">
                     <form action="create.php" method="post">
                         

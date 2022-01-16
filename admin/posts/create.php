@@ -36,12 +36,11 @@ include_once "../../app/controller/posts.php";
                     <h2>Blog yaratish sahifasi</h2>
                                      
                 </div>
-                <?php if ($errMsg){?>
-                        <p style="text-align: center; width: 100%" class="alert alert-danger"><?=$errMsg?></p>
-                        <hr>
-                        <?php }?>
+               <!-- hATOLIKLARNI KO'RSATISH UCHUN -->
+               <?php include("../../app/helps/errorinfo.php");?>
+        
                 <div class="row post">
-                    <form action="create.php" method="post">
+                    <form action="create.php" method="post" enctype="multipart/form-data">
                     <div class="col div">
                     <label for="title" class="form-label">Blogning nomlanishi</label>
                         <input type="text" value="<?=$title?>" name="title" id="title" class="form-control" placeholder="Blog nomi" aria-label="Blogni nomi">
