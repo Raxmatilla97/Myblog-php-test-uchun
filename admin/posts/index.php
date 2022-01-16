@@ -1,6 +1,6 @@
 <?php
-//require_once "../../app/database/db.php";
-session_start();
+
+include_once "../../app/controller/posts.php";
 ?>
 
 <!doctype html>
@@ -34,39 +34,28 @@ session_start();
                 <div class="row title-table">
                     <h2>Postlarni boshqarish</h2>
                     <div class="col-1">ID</div>
-                    <div class="col-5">Nomlanishi</div>
+                    <div class="col-3">Nomlanishi</div>
                     <div class="col-2">Mualif</div>
-                    <div class="col-4">Tahrirlash</div>
-                   
+                    <div class="col-2">Tahrirlash</div>
+                    <div class="col-2">Status</div>
+                  
                 </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="author col-2">Admin</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
+                <?php foreach($postsAdm as $key => $post): ?>
+                <div class="row post">                  
+                  
+                    <div class="id col-1"><?=$key + 1?></div>
+                    <div class="title col-3"><?=$post['title']?></div>
+                    <div class="author col-2"><?=$post['username']?></div>
+                    <div class="edit col-1"><a href="edit.php?id=<?= $post['id']?>">Edit</a></div>
+                    <div class="delet col-1"><a href="edit.php?delet_id=<?= $post['id']?>">Delete</a></div>
+                  
+                    <?php if($post['status']): ?>
+                    <div class="status col-2"><span class="badge rounded-pill bg-success">Ko'rinarli</span></div>
+                    <?php else: ?>
+                    <div class="status col-2"><span class="badge rounded-pill bg-secondary">Qoralama</span></div>
+                    <?php endif ?>
                 </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="author col-2">Admin</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
-                </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="author col-2">Admin</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
-                </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="author col-2">Admin</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
-                </div>
+                <?php endforeach ?>
             </div>
         </div>
     </div>
