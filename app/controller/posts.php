@@ -80,57 +80,80 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_post']) ){
 }else{
     echo 'GET';
   
+    $id = '';
     $title = '';
     $content = '';
+    $status = '';
+    $topic = '';
   
 }
 
 
-// Bo'limlarni tahrirlash funksiyalari
+// Bostlarni tahrirlash funksiyalari
 
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])){
-    $id = $_GET['id'];
-    $topic = selectOne('topics', ['id' => $id]);
-    $id = $topic['id'];
-    $name = $topic['name'];
-    $content = $topic['description'];
-   
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id']))
+{    
+    $post = selectOne('posts', ['id' =>  $_GET['id']]);
+
+    $id = $post['id'];
+    $title = $post['title'];
+    $content = $post['content'];
+    $status = $post['status'];
+    $topic = $post['id_topic'];  
+    
 }    
 
 
-// Bo'limlarni tahrirlash funksiyasi
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['topic-edit'])){
-
-    
-        $name = trim($_POST['name']);
+// Postlarni tahrirlash funksiyasi
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_post']))
+{
+        $id = trim($_POST['id']);
+        $title = trim($_POST['title']);
         $content = trim($_POST['content']);
-           
-        if ($name === '' || $content === ''){
-        $errMsg = "Formada maydonchalar to'ldirilmagan!";
-        }elseif (mb_strlen($name, 'UTF8') < 2){
-            $errMsg = "Nomlanish 2-x simvoldan kotta bo'lishi kere!";
-        }else {
-            $existence = selectOne('topics', ['name' => $name]);
-            if ($existence['name'] === $name){
-                $errMsg = $name . " = nomli bo'lim ro'yxatdan o'tgan! Iltimos boshqa nom yozing!";
-            }else{
+        $topic = $_POST['id_topic'];
+        $img = $_POST['img'];
+        $status = isset($_POST['status']) ? 1 : 0;
+    
+        if ($title === '' || $content === '' || $topic === ''){
+        array_push($errMsg, "Formada maydonchalar to'ldirilmagan!");
+        
+        }elseif (mb_strlen($title, 'UTF8') < 7){
+            array_push($errMsg, "Nomlanish 7-x simvoldan kotta bo'lishi kere!");
+        }else
+            {
                 
-                $topic = [
-                    'name' => $name,
-                    'description' => $content               
+                $post = [
+                    'id_user' => $id_user,
+                    'title' => $title,
+                    'content' => $content,
+                    'id_topic' => $topic,
+                    'img' => $img,
+                    'status' => $status,
+                               
                 ];
                 //    $id = insert('users', $posts);
              
-                $id = $_POST['id'];
-                $topic_id = update('topics', $id, $topic);
-    
-                header("Location: " . PATH_URL . "/admin/topics/index.php");
-            }
+                $post = update('posts', $id, $post);
+               
+                header("Location: " . PATH_URL . "/admin/posts/index.php"); 
+        
     
         }
     
     
+    }else{
+        echo 'GET1';
+      
+        // $id = $_POST['id'];
+        // $title =  '';
+        // $content =  $_POST['content'];
+        // $status = isset($_POST['status']) ? 1 : 0;
+        // $topic =  $_POST['id_topic'];
+      
+      
     }
+    
+    
 
 // Bo'limlarni o'chirish funksiyalari
 
