@@ -1,5 +1,6 @@
 <?php
-//require_once "../../app/database/db.php";
+require_once  "../../path.php";
+include  ROOT_PATH . "/app/controller/users.php";
 session_start();
 ?>
 
@@ -34,39 +35,27 @@ session_start();
                 <div class="row title-table">
                     <h2>Foydalanuvchilarni boshqarish</h2>
                     <div class="col-1">ID</div>
-                    <div class="col-5">Foydalanuvchi logini</div> 
+                    <div class="col-2">Logini</div> 
+                    <div class="col-3">Emaili</div>
                     <div class="col-2">Roli</div>   
                     <div class="col-4">Tahrirlash</div>
                    
                 </div>
+                <?php foreach($users as $key => $user): ?>
                 <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="admin col-2">Admini</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
+                    <div class="id col-1"><?=$user['id']?></div>
+                    <div class="title col-2"><?=$user['username']?></div>
+                    <div class="admin col-3"><?=$user['email']?></div>
+                    <?php if($user['admin'] == 1): ?>
+                        <div class="admin col-2">Admini</div>
+                    <?php else: ?>
+                        <div class="admin col-2">User</div>
+                    <?php endif ?>
+                    
+                    <div class="edit col-1"><a href="edit.php?edit_id=<?=$user['id'] ?>">Edit</a></div>
+                    <div class="delet col-1"><a href="index.php?delete_id=<?=$user['id'] ?>">Delete</a></div>
                 </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="admin col-2">Admini</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
-                </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="admin col-2">Admini</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
-                </div>
-                <div class="row post">
-                    <div class="id col-1">1</div>
-                    <div class="title col-5">Qandaydur yangilik nomi</div>
-                    <div class="admin col-2">Admini</div>
-                    <div class="edit col-1"><a href="#">Edit</a></div>
-                    <div class="delet col-1"><a href="#">Delete</a></div>
-                </div>
+               <?php endforeach ?>
             </div>
         </div>
     </div>
