@@ -1,5 +1,6 @@
 <?php
-//require_once "../../app/database/db.php";
+require_once  "../../path.php";
+include  ROOT_PATH . "/app/controller/users.php";
 session_start();
 ?>
 
@@ -64,16 +65,16 @@ session_start();
                         </div>
 
                         <div class="col">
-                    <select class="form-select" aria-label="Default select example">
-                        <option selected>Foydalanuvchi adminmi?</option>
-                        <option selected>User</option>
-                        <option value="1">Admin</option>
-                      
-                    </select>
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="1" name="admin" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                         Admin?
+                        </label>
+                    </div>
                     </div>
                    
-                    <div class="col">
-                        <button class="btn btn-primary" type="submit">Foydalanuvchini yaratish</button>
+                    <div class="col mt-5">
+                        <button class="btn btn-primary" name="create_user" type="submit">Foydalanuvchini yaratish</button>
                     </div>
 
                     </form>
